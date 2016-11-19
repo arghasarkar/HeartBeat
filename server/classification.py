@@ -28,26 +28,26 @@ def classify():
     eclf3 = VotingClassifier(estimators=[('nn', neigh), ('svm', supportVM), ('net', net), ('rf', forest)], voting='soft', weights=[3,1,1,1])
 
     eclf3.fit(Xtrain, ytrain)
-    print eclf3.score(Xtest, ytest)
+    print(eclf3.score(Xtest, ytest))
 
 def nearestNeighbours(X, y, Xtest, ytest):
     neigh.fit(X, y)
     neigh.predict(testCondition)
-    print neigh.score(Xtest, ytest)
+    print(neigh.score(Xtest, ytest))
 
 def supportVectorMachine(X, y, Xtest, ytest):
     supportVM.fit(X, y)
     supportVM.predict(testCondition)
-    print supportVM.score(Xtest, ytest)
+    print(supportVM.score(Xtest, ytest))
 
 def randomForest(X, y, Xtest, ytest):
     forest.fit(X, y)
     forest.predict(testCondition)
-    print forest.score(Xtest, ytest)
+    print(forest.score(Xtest, ytest))
 
 def neuralNet(X, y, Xtest, ytest):
     net.fit(X, y)
     net.predict(testCondition)
-    print net.score(Xtest, ytest)
+    print(net.score(Xtest, ytest))
 
 classify()
