@@ -1,5 +1,6 @@
 from flask import Flask, json, redirect, url_for, request
 import csv, os
+from flask.ext.cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
 import classification
 
@@ -7,6 +8,8 @@ PATH_TO_UPLOADS = "./uploads"
 ALLOWED_EXTENSIONS = set(['txt', 'csv'])
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['UPLOAD_FOLDER'] = PATH_TO_UPLOADS
 
 def allowed_file(filename):
@@ -18,6 +21,7 @@ def hello():
     return "Hello World! Test"
 
 @app.route('/upload', methods = ['POST', 'GET'])
+@cross_origin()
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
