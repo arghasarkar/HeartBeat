@@ -374,7 +374,7 @@
 
         console.log("Success");
         $.get("/result", function( data ) {
-             var result = data.result.result;
+             var result = data.results.result;
           console.log(result)
             var remedy = "";
             var title = "";
