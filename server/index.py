@@ -7,7 +7,7 @@ import classification
 PATH_TO_UPLOADS = "./uploads"
 ALLOWED_EXTENSIONS = set(['txt', 'csv'])
 
-app = Flask(__name__, static_url_path='statics/')
+app = Flask(__name__, static_url_path='/statics/')
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['UPLOAD_FOLDER'] = PATH_TO_UPLOADS
@@ -16,9 +16,9 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
-@app.route("/")
+@app.route("/<path:path>")
 def hello():
-    return "Hello World! Test"
+    return send_from_directory('statics', path)
 
 @app.route('/upload', methods = ['POST', 'GET'])
 @cross_origin()
