@@ -374,6 +374,69 @@
         if (file.previewElement) {
           return file.previewElement.classList.add("dz-success");
         }
+
+        $.get("/results", function( data ) {
+             var result = data.result.result;
+            var remedy = "";
+            var title = "";
+            var advice = "";
+
+            switch (result) {
+         case "1":
+           title = "Normal";
+           break;
+         case "2":
+           title = "Ischemic changes (Coronary Artery Disease)";
+           remedy = "https://pathways.nice.org.uk/pathways/myocardial-infarction-with-st-segment-elevation";
+           break;
+         case "3":
+           title = "Old Anterior Myocardial Infarction";
+           remedy = "https://pathways.nice.org.uk/pathways/myocardial-infarction-with-st-segment-elevation";    break;
+         case "4":
+           title = "Old Inferior Myocardial Infarction";
+           remedy = "https://pathways.nice.org.uk/pathways/myocardial-infarction-with-st-segment-elevation";
+           break;
+         case "5":
+           title = "Sinus tachycardy";
+           remedy = "http://www.heart.org/HEARTORG/Conditions/Arrhythmia/AboutArrhythmia/Tachycardia-Fast-Heart-Rate_UCM_302018_Article.jsp";
+           advice = "Heart rate is fast (>100 beats/min). Tachycardias are more likely to be symptomatic when the arrhythmia is fast and sustained. Further subdivided into SVTs, which arise from the atrium or AV junction, and ventricular tachycardias, which arise from the ventricles.";
+           break;
+         case "6":
+           title = "Sinus bradycardy";
+           remedy = "https://pathways.nice.org.uk/pathways/myocardial-infarction-with-st-segment-elevation";
+           advice = "Patients with persistent symptomatic bradycardia are treated with a permanent cardiac pacemaker. First-line treatment in acute situation with adverse signs: atropine IV (contraindicated in myasthenia gravis and paralytic ileus). Temporary pacing (transcutaneous or transvenous if expertise available) is alternative.";
+           break;
+         case "7":
+           title = "Left bundle branch block";
+           remedy = "http://google.com";
+           break;
+         case "8":
+            title = "Right bundle branch block";
+           remedy = "http://google.com";
+           break;
+         case "9":
+           title = "Left ventricule hypertrophy";
+           remedy = "http://google.com";
+           break;
+         case "10":
+           title = "Atrial Fibrillation or Flutter";
+           remedy = "http://google.com";
+           break;
+         case "11":
+           title = "Others";
+           break;
+         default:
+           console.log("Sorry, we are out of " + expr + ".");
+        }
+
+            $( "#remediesTitle" ).append( title );
+            $( "#remediesRemedy" ).append( remedy );
+            $( "#remediesAdvice").append( advice );
+
+
+
+        });
+
         $('#dropzone').hide();
       },
       successmultiple: noop,
