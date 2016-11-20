@@ -11,6 +11,7 @@ app = Flask(__name__, static_url_path='/statics/')
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['UPLOAD_FOLDER'] = PATH_TO_UPLOADS
+classificationResult = []
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -19,6 +20,10 @@ def allowed_file(filename):
 @app.route("/<path:path>")
 def root(path):
     return send_from_directory('statics', path)
+
+@app.route("/result",  methods = ['POST', 'GET'])
+def showResult():
+    return json.jsonify(results=classificationResult)
 
 @app.route('/upload', methods = ['POST', 'GET'])
 @cross_origin()
@@ -37,7 +42,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'data.csv'))
-            classification.classify()
+            classificationResult = classification.classify()
             return redirect(url_for('upload_file',
                                     filename=filename))
     return '''
