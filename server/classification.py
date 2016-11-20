@@ -22,21 +22,22 @@ def classify():
     ytrain = data.iloc[:451,279:]
     Xtest = data.iloc[401:451,:279]
     ytest = data.iloc[401:451,279:]
-    newData = data.iloc[:1,:279]
-    # nearestNeighbours(Xtrain, ytrain,  Xtest, ytest)
+    #newData = data.iloc[:1,:279]
+
+    return nearestNeighbours(Xtrain, ytrain, newData)
     # supportVectorMachine(Xtrain, ytrain,  Xtest, ytest)
     # randomForest(Xtrain, ytrain,  Xtest, ytest)
     # neuralNet(Xtrain, ytrain, Xtest, ytest)
 
-    eclf3 = VotingClassifier(estimators=[('rf', forest)], voting='hard', weights=[1])
-
+    #eclf3 = VotingClassifier(estimators=[('knn', neigh)], voting='hard', weights=[1])
+    '''
     eclf3.fit(Xtrain, ytrain)
     print(eclf3.predict(newData))
-    return eclf3.predict(newData)
+    return eclf3.predict(newData)'''
 
-def nearestNeighbours(X, y, Xtest, ytest):
+def nearestNeighbours(X, y, newData):
     neigh.fit(X, y)
-    neigh.predict(testCondition)
+    return neigh.predict(newData)
     print(neigh.score(Xtest, ytest))
 
 def supportVectorMachine(X, y, Xtest, ytest):
