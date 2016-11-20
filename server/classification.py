@@ -22,6 +22,7 @@ def classify():
     ytrain = data.iloc[:401,279:]
     Xtest = data.iloc[401:451,:279]
     ytest = data.iloc[401:451,279:]
+    newData = data.iloc[:1,:279]
     # nearestNeighbours(Xtrain, ytrain,  Xtest, ytest)
     # supportVectorMachine(Xtrain, ytrain,  Xtest, ytest)
     # randomForest(Xtrain, ytrain,  Xtest, ytest)
