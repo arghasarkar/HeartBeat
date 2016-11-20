@@ -429,9 +429,9 @@
            console.log("Sorry, we are out of " + expr + ".");
         }
 
-            $( "#remediesTitle" ).append( title );
-            $( "#remediesRemedy" ).append( remedy );
-            $( "#remediesAdvice").append( advice );
+            $( "#remediesTitle" ).html( title );
+            $( "#remediesRemedy" ).html( remedy );
+            $( "#remediesAdvice").html( advice );
 
 
 
