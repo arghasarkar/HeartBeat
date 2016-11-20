@@ -28,7 +28,7 @@ def classify():
     # randomForest(Xtrain, ytrain,  Xtest, ytest)
     # neuralNet(Xtrain, ytrain, Xtest, ytest)
 
-    eclf3 = VotingClassifier(estimators=[('nn', neigh), ('svm', supportVM), ('net', net), ('rf', forest)], voting='soft', weights=[3,1,1,1])
+    eclf3 = VotingClassifier(estimators=[('svm', supportVM), ('net', net), ('rf', forest)], voting='soft', weights=[1,1,1])
 
     eclf3.fit(Xtrain, ytrain)
     print(eclf3.predict(newData))

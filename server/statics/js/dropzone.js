@@ -374,6 +374,7 @@
         if (file.previewElement) {
           return file.previewElement.classList.add("dz-success");
         }
+        $('#dropzone').hide();
       },
       successmultiple: noop,
       canceled: function(file) {
