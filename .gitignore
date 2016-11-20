@@ -1,1 +1,3 @@
+*.pyc
+classification.pyc
 __pycache__.
