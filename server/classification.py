@@ -18,8 +18,8 @@ def classify():
     newData = pd.read_csv('uploads/data.csv')
     print(newData)
     labels = pd.read_csv('data/arrhythmiaNames.csv')
-    Xtrain = data.iloc[:401,:279]
-    ytrain = data.iloc[:401,279:]
+    Xtrain = data.iloc[:451,:279]
+    ytrain = data.iloc[:451,279:]
     Xtest = data.iloc[401:451,:279]
     ytest = data.iloc[401:451,279:]
     newData = data.iloc[:1,:279]
@@ -28,7 +28,7 @@ def classify():
     # randomForest(Xtrain, ytrain,  Xtest, ytest)
     # neuralNet(Xtrain, ytrain, Xtest, ytest)
 
-    eclf3 = VotingClassifier(estimators=[('svm', supportVM), ('net', net), ('rf', forest)], voting='hard', weights=[1,1,1])
+    eclf3 = VotingClassifier(estimators=[('knn', neigh)], voting='hard', weights=[1])
 
     eclf3.fit(Xtrain, ytrain)
     print(eclf3.predict(newData))
