@@ -375,7 +375,7 @@
           return file.previewElement.classList.add("dz-success");
         }
 
-        $.get("/results", function( data ) {
+        $.get("/result", function( data ) {
              var result = data.result.result;
           console.log(result)
             var remedy = "";
