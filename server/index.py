@@ -42,6 +42,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'data.csv'))
+            global classificationResult
             classificationResult = classification.classify()
             return redirect(url_for('upload_file',
                                     filename=filename))
