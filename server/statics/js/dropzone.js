@@ -377,6 +377,7 @@
 
         $.get("/results", function( data ) {
              var result = data.result.result;
+          console.log(result)
             var remedy = "";
             var title = "";
             var advice = "";
@@ -429,9 +430,9 @@
            console.log("Sorry, we are out of " + expr + ".");
         }
 
-            $( "#remediesTitle" ).html( title );
-            $( "#remediesRemedy" ).html( remedy );
-            $( "#remediesAdvice").html( advice );
+            $( '#remediesTitle' ).html( title );
+            $( '#remediesRemedy' ).html( remedy );
+            $( '#remediesAdvice').html( advice );
 
 
 
