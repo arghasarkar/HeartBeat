@@ -7,7 +7,6 @@ import pandas as pd
 
 neigh = KNeighborsClassifier(n_neighbors=3)
 supportVM = svm.SVC(probability=True)
-forest = RandomForestClassifier(n_estimators = 500)
 net = MLPClassifier(activation='tanh')
 
 # 5

@@ -387,6 +387,7 @@
          case "2":
            title = "Ischemic changes (Coronary Artery Disease)";
            remedy = "https://pathways.nice.org.uk/pathways/myocardial-infarction-with-st-segment-elevation";
+             advice = "Arrange emergency ambulance. Aspirin 300mg chewed 31 (if no absolute CI) and GTN sublingual.";
            break;
          case "3":
            title = "Old Anterior Myocardial Infarction";
