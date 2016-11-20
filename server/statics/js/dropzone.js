@@ -371,10 +371,8 @@
       sending: noop,
       sendingmultiple: noop,
       success: function(file) {
-        if (file.previewElement) {
-          return file.previewElement.classList.add("dz-success");
-        }
 
+        console.log("Success");
         $.get("/result", function( data ) {
              var result = data.result.result;
           console.log(result)
@@ -439,6 +437,11 @@
         });
 
         $('#dropzone').hide();
+
+        if (file.previewElement) {
+          return file.previewElement.classList.add("dz-success");
+        }
+
       },
       successmultiple: noop,
       canceled: function(file) {
