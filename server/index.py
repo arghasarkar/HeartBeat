@@ -1,4 +1,4 @@
-from flask import Flask, json, redirect, url_for, request, send_from_directory
+from flask import Flask, json, redirect, url_for, request, send_from_directory, render_template
 import csv, os
 from flask.ext.cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
@@ -17,7 +17,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 @app.route("/<path:path>")
-def hello():
+def root(path):
     return send_from_directory('statics', path)
 
 @app.route('/upload', methods = ['POST', 'GET'])
@@ -36,7 +36,7 @@ def upload_file():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'data.csv'))
             classification.classify()
             return redirect(url_for('upload_file',
                                     filename=filename))

@@ -15,6 +15,8 @@ testCondition = [3,0,105,12,69,155,240,133,64,93,95,54,92,0,124,0,28,24,0,0,16,0
 
 def classify():
     data = pd.read_csv('data/arrhythmia.csv')
+    newData = pd.read_csv('uploads/data.csv')
+    print(newData)
     labels = pd.read_csv('data/arrhythmiaNames.csv')
     Xtrain = data.iloc[:401,:279]
     ytrain = data.iloc[:401,279:]
@@ -28,7 +30,8 @@ def classify():
     eclf3 = VotingClassifier(estimators=[('nn', neigh), ('svm', supportVM), ('net', net), ('rf', forest)], voting='soft', weights=[3,1,1,1])
 
     eclf3.fit(Xtrain, ytrain)
-    print(eclf3.score(Xtest, ytest))
+    print(eclf3.predict(newData))
+    return eclf3.predict(newData)
 
 def nearestNeighbours(X, y, Xtest, ytest):
     neigh.fit(X, y)
