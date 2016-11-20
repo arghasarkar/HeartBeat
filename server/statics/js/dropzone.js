@@ -405,19 +405,19 @@
            remedy = "https://pathways.nice.org.uk/pathways/myocardial-infarction-with-st-segment-elevation";
            advice = "Patients with persistent symptomatic bradycardia are treated with a permanent cardiac pacemaker. First-line treatment in acute situation with adverse signs: atropine IV (contraindicated in myasthenia gravis and paralytic ileus). Temporary pacing (transcutaneous or transvenous if expertise available) is alternative.";
            break;
-         case "7":
+         case "9":
            title = "Left bundle branch block";
            remedy = "http://google.com";
            break;
-         case "8":
+         case "10":
             title = "Right bundle branch block";
            remedy = "http://google.com";
            break;
-         case "9":
+         case "14":
            title = "Left ventricule hypertrophy";
            remedy = "http://google.com";
            break;
-         case "10":
+         case "15":
            title = "Atrial Fibrillation or Flutter";
            remedy = "http://google.com";
            break;
