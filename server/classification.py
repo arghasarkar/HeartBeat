@@ -7,7 +7,7 @@ import pandas as pd
 
 neigh = KNeighborsClassifier(n_neighbors=3)
 supportVM = svm.SVC(probability=True)
-forest = RandomForestClassifier(n_estimators = 200)
+forest = RandomForestClassifier(n_estimators = 500)
 net = MLPClassifier(activation='tanh')
 
 # 5
@@ -24,9 +24,9 @@ def classify():
     ytest = data.iloc[401:451,279:]
     #newData = data.iloc[:1,:279]
 
-    return nearestNeighbours(Xtrain, ytrain, newData)
+    #return nearestNeighbours(Xtrain, ytrain, newData)
     # supportVectorMachine(Xtrain, ytrain,  Xtest, ytest)
-    # randomForest(Xtrain, ytrain,  Xtest, ytest)
+    return randomForest(Xtrain, ytrain,  newData)
     # neuralNet(Xtrain, ytrain, Xtest, ytest)
 
     #eclf3 = VotingClassifier(estimators=[('knn', neigh)], voting='hard', weights=[1])
@@ -45,10 +45,11 @@ def supportVectorMachine(X, y, Xtest, ytest):
     supportVM.predict(testCondition)
     print(supportVM.score(Xtest, ytest))
 
-def randomForest(X, y, Xtest, ytest):
+def randomForest(X, y, newData):
     forest.fit(X, y)
-    forest.predict(testCondition)
-    print(forest.score(Xtest, ytest))
+    #forest.predict(testCondition)
+    print(forest.predict(newData))
+    return forest.predict(newData)
 
 def neuralNet(X, y, Xtest, ytest):
     net.fit(X, y)
