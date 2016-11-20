@@ -23,7 +23,7 @@ def root(path):
 
 @app.route("/result",  methods = ['POST', 'GET'])
 def showResult():
-    return jsonify(results=classificationResult)
+    return jsonify(results= {"result": str(classificationResult) })
 
 @app.route('/upload', methods = ['POST', 'GET'])
 @cross_origin()
@@ -43,7 +43,7 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'data.csv'))
             global classificationResult
-            classificationResult = classification.classify()
+            classificationResult = classification.classify()[0]
             return redirect(url_for('upload_file',
                                     filename=filename))
     return '''
