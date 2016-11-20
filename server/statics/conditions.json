@@ -1,0 +1,37 @@
+{"conditions": {
+    "Normal": {
+      "url": ""
+    },
+    "Ischemic changes (Coronary Artery Disease)": {
+      "url": "https://pathways.nice.org.uk/pathways/myocardial-infarction-with-st-segment-elevation"
+    },
+    "Old Anterior Myocardial Infarction": {
+      "url": "https://pathways.nice.org.uk/pathways/myocardial-infarction-with-st-segment-elevation"
+    },
+    "Old Inferior Myocardial Infarction": {
+      "url": "https://pathways.nice.org.uk/pathways/myocardial-infarction-with-st-segment-elevation"
+    },
+    "Sinus tachycardy": {
+      "url": "http://www.heart.org/HEARTORG/Conditions/Arrhythmia/AboutArrhythmia/Tachycardia-Fast-Heart-Rate_UCM_302018_Article.jsp",
+      "advice": "Heart rate is fast (>100 beats/min). Tachycardias are more likely to be symptomatic when the arrhythmia is fast and sustained. Further subdivided into SVTs, which arise from the atrium or AV junction, and ventricular tachycardias, which arise from the ventricles."
+     },
+    "Sinus bradycardy": {
+      "url": "https://pathways.nice.org.uk/pathways/heart-rhythm-conditions#content=view-node%3Anodes-symptomatic-bradycardia-due-to-sick-sinus-syndrome-or-atrioventricular-block",
+      "advice": "Patients with persistent symptomatic bradycardia are treated with a permanent cardiac pacemaker. First-line treatment in acute situation with adverse signs: atropine IV (contraindicated in myasthenia gravis and paralytic ileus). Temporary pacing (transcutaneous or transvenous if expertise available) is alternative."
+      },
+    "Left bundle branch block": {
+      "url": "http://google.com"
+      },
+    "Right bundle branch block": {
+      "url": "http://google.com"
+      },
+    "Left ventricule hypertrophy": {
+      "url": "http://google.com"
+      },
+    "Atrial Fibrillation or Flutter": {
+      "url": "http://google.com"
+      },
+    "Others": {
+      "url": ""
+      }
+}}

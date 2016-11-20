@@ -1,4 +1,4 @@
-from flask import Flask, json, redirect, url_for, request
+from flask import Flask, json, redirect, url_for, request, send_from_directory
 import csv, os
 from flask.ext.cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
@@ -7,7 +7,7 @@ import classification
 PATH_TO_UPLOADS = "./uploads"
 ALLOWED_EXTENSIONS = set(['txt', 'csv'])
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='statics/')
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['UPLOAD_FOLDER'] = PATH_TO_UPLOADS
