@@ -1,3 +1,5 @@
+uploads/data.csv
+*.csv
 .idea
 .idea/
 .idea/*

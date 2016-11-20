@@ -54,4 +54,4 @@ def neuralNet(X, y, Xtest, ytest):
     net.predict(testCondition)
     print(net.score(Xtest, ytest))
 
-classify()
+#classify()
