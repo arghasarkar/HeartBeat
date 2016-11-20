@@ -37,8 +37,8 @@ def classify():
 
 def nearestNeighbours(X, y, newData):
     neigh.fit(X, y)
+    print(neigh.predict(newData))
     return neigh.predict(newData)
-    print(neigh.score(Xtest, ytest))
 
 def supportVectorMachine(X, y, Xtest, ytest):
     supportVM.fit(X, y)
