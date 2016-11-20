@@ -1,4 +1,4 @@
-from flask import Flask, json, redirect, url_for, request, send_from_directory, render_template
+from flask import Flask, json, jsonify, redirect, url_for, request, send_from_directory, render_template
 import csv, os
 from flask.ext.cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
@@ -23,7 +23,7 @@ def root(path):
 
 @app.route("/result",  methods = ['POST', 'GET'])
 def showResult():
-    return json.jsonify(results=classificationResult)
+    return jsonify(results=classificationResult)
 
 @app.route('/upload', methods = ['POST', 'GET'])
 @cross_origin()
